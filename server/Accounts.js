@@ -1,6 +1,6 @@
 // Setup Email Verification
-Accounts.emailTemplates.siteName = 'Meteor-React-Starter';
-Accounts.emailTemplates.from = 'Meteor-React-Starter <accounts@Meteor-React-Starter.com>';
+Accounts.emailTemplates.siteName = 'Out In Science';
+Accounts.emailTemplates.from = 'Out In Science <accounts@outinscience.com>';
 Accounts.emailTemplates.verifyEmail = {
     subject(user) {
         return 'Verification Email: ' + user.profile.firstname;
