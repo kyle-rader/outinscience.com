@@ -33,7 +33,5 @@ gadicc:blaze-react-component
 
 tinytest@1.0.11
 raderk:qr-decode
-cfs:standard-packages
-cfs:gridfs
 okgrow:analytics
 shell-server

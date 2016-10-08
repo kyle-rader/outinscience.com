@@ -3,7 +3,7 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import ScrollToTop from 'react-scroll-up';
-import { Button } from 'stardust';
+import { Button } from 'semantic-ui-react';
 
 App = class App extends Component {
 

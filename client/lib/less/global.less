@@ -1,87 +1,50 @@
-html, body, div#react-root, div.app-root {
-    height: 100%;
-    position: relative;
+@import './variables.less';
+
+html,
+html > body,
+html.ios,
+html.ios > body,
+div#react-root,
+div#app-root {
+  position: relative;
+  background: #fff;
+}
+
+html,
+html > body,
+html.ios,
+html.ios > body,
+div#react-root,
+div#app-root {
+  height: 100% !important;
+}
+
+div#app-root {
+    padding-top: 71px;
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
-.custom-bg {
-    @media screen and (min-width: 900px) {
-        background-size: cover;
-        background-attachment: fixed;
-        background-position-x: 50%;
-        min-height: 100%;
-
-        &.map {
-            background-image: url("img/map.jpeg");
-        }
-
-        &.map2 {
-            background-image: url("img/map2.jpeg");
-        }
-
-        &.ocean {
-            background-image: url("img/ocean2.jpeg");
-        }
-
-        &.water {
-            background-image: url("img/water.jpeg");
-        }
-
-        &.alaska {
-            background-image: url("img/alaska.jpeg");
-        }
-
-        &.bridge {
-            background-image: url("img/bridge.jpeg");
-        }
-
-        &.clouds {
-            background-image: url("img/clouds.jpg");
-        }
-
-        &.red-square {
-            background-image: url("img/red-square.jpg");
-        }
-
-        &.road {
-            background-image: url("img/road.jpg");
-        }
-    }
+div#react-root > div.app-root > div.pusher {
+  padding-top: 68px;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 .text-left {
-    text-align: left;
+  text-align: left;
 }
 .text-right {
-    text-align: right;
+  text-align: right;
 }
 
-@wwu-green:  #BAD80A;
-@wwu-blue: #003f87;
 
-.wwu-btn {
-    background-color: @wwu-green !important;
-    color: @wwu-blue !important;
-
-    &:hover {
-        background-color: darken(@wwu-green, 5%) !important;
-    }
+.dark-blue {
+  color: @dark-blue;
 }
-
-.wwu-blue {
-    color: @wwu-blue !important;
-}
-
-.wwu-dark-blue {
-    color: @wwu-blue !important;
-}
-
-.facebook-blue {
-    color: #304d8a !important;
+.dark-red {
+  color: @dark-red;
 }

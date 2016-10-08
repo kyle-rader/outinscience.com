@@ -49,11 +49,9 @@ Accounts.onCreateUser((options, user) => {
 
     // Assign all other properties from the options
     user = _.extend(user, {
-        profile: {
-            firstname: options.firstname,
-            lastname: options.lastname,
-            displayname: options.displayname,
-        },
+        firstName: options.firstname,
+        lastName: options.lastname,
+        displayName: `${options.firstname.slice(0,1).toUpperCase()}${options.firstname.slice(1).toLowerCase()} ${options.lastname.slice(0,1).toUpperCase()}${options.lastname.slice(1).toLowerCase()}`,
         roles: ['user']
     });
 
