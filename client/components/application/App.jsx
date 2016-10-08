@@ -11,6 +11,15 @@ App = class App extends Component {
     document.title = Meteor.settings.public.siteName;
   }
 
+  componentDidMount() {
+    let favicon = document.createElement('link');
+    let min = 1;
+    let max = 12;
+    favicon.rel = 'shortcut icon';
+    favicon.href = `/img/favicons/favicon${Math.floor(Math.random() * (max - min + 1)) + min}.ico`;
+    document.head.appendChild(favicon);
+  }
+
   render() {
     return (
     <div id="app-root">

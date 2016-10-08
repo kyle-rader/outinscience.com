@@ -17,11 +17,14 @@
   },
   "homepage": "https://github.com/kyle-rader/puzzlehunt#readme",
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "meteor-node-stubs": "^0.2.3",
-    "qrcode.react": "^0.6.1",
     "react": "^15.1.0",
     "react-addons-pure-render-mixin": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-mounter": "^1.2.0"
+    "react-mounter": "^1.2.0",
+    "react-scroll-up": "^1.1.5",
+    "semantic-ui-react": "^0.54.5",
+    "winston": "^2.2.0"
   }
 }
