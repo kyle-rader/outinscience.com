@@ -35,3 +35,5 @@ tinytest@1.0.11
 raderk:qr-decode
 okgrow:analytics
 shell-server
+accounts-facebook
+service-configuration

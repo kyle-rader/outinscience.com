@@ -37,6 +37,11 @@ TopBar = class TopBar extends React.Component {
     }
   }
 
+  _logout(event) {
+    event.preventDefault();
+    return Meteor.logout(() => FlowRouter.go('/'));
+  }
+
   _logInLogOutBtn() {
     if (this.props.user) {
       return (
@@ -51,11 +56,6 @@ TopBar = class TopBar extends React.Component {
         </a>
       );
     }
-  }
-
-  _logout(event) {
-    event.preventDefault();
-    return Meteor.logout(() => FlowRouter.go('/'));
   }
 
   _renderAdminMenu() {
