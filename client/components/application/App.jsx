@@ -1,42 +1,29 @@
-// Define our main App component
+// Main App - React Root Component
 
-import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import React, { Component } from 'react';
+import ScrollToTop from 'react-scroll-up';
+import { Button } from 'stardust';
 
-App = React.createClass({
-    
-    mixins: [ReactMeteorData],
-    getMeteorData() {
-        return {
-            hasUser: !!Meteor.user(),
-            isPublic(route) {
-                let publicRoutes = ['home', 'login', 'register', 'requestpasswordreset', 'passwordreset'];
+App = class App extends Component {
 
-                return publicRoutes.indexOf(route) > -1;
-            },
-            canView() {
-                return this.isPublic(FlowRouter.current().route.name) || !!Meteor.user();
-            }
-        };
-    },
+  componentDidMount() {
+    document.title = Meteor.settings.public.siteName;
+  }
 
-    getView() {
-        return this.data.canView() ? this.props.yield : <Login />;
-    },
+  render() {
+    return (
+    <div id="app-root">
+      <TopBarContainer />
+      {this.props.yield}
+      <Footer />
 
-    componentDidMount() {
-        let favicon = document.createElement('link');
-        let min = 1;
-        let max = 12;
-        favicon.rel = 'shortcut icon';
-        favicon.href = `/img/favicons/favicon${Math.floor(Math.random() * (max - min + 1)) + min}.ico`;
-        document.head.appendChild(favicon);
-    },
+      <ScrollToTop showUnder={1000}>
+        <Button labeled="right" icon="up arrow" content="Scroll Up" />
+      </ScrollToTop>
 
-    render() {
-        return (
-        <div className="app-root">
-            <AppHeader hasUser={this.data.hasUser} />
-            {this.getView()}
-        </div>);
-    }
-});
+    </div>
+    );
+  }
+
+}
