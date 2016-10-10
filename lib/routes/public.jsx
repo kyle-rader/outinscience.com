@@ -13,30 +13,72 @@ publicRoutes.route('/', {
     }
 });
 
-publicRoutes.route('/login', {
-    name: 'login',
+publicRoutes.route('/outlist', {
+    name: 'outlist',
     action() {
-        mount(App, {yield: <Login />});
+        mount(App, {yield: <Home />});
     }
 });
 
-publicRoutes.route('/register', {
-    name: 'register',
+publicRoutes.route('/glossary', {
+    name: 'glossary',
     action() {
-        mount(App, {yield: <Register />});
+        mount(App, {yield: <Home />});
     }
 });
 
-publicRoutes.route('/requestpasswordreset', {
-    name: 'requestpasswordreset',
+publicRoutes.route('/resources', {
+    name: 'resources',
     action() {
-        mount(App, {yield: <RequestPasswordReset />});
+        mount(App, {yield: <Home />});
     }
 });
 
-publicRoutes.route('/passwordreset/:token', {
-    name: 'passwordreset',
-    action(params, queryParams) {
-        mount(App, {yield: <PasswordReset token={params.token}/>});
+publicRoutes.route('/forum', {
+    name: 'forum',
+    action() {
+        mount(App, {yield: <Home />});
     }
 });
+
+publicRoutes.route('/science', {
+    name: 'science',
+    action() {
+        mount(App, {yield: <Home />});
+    }
+});
+
+publicRoutes.route('/team', {
+    name: 'team',
+    action() {
+        mount(App, {yield: <Home />});
+    }
+});
+
+// publicRoutes.route('/login', {
+//     name: 'login',
+//     action() {
+//         mount(App, {yield: <Login />});
+//     }
+// });
+
+// publicRoutes.route('/register', {
+//     name: 'register',
+//     action() {
+//         mount(App, {yield: <Register />});
+//     }
+// });
+
+// publicRoutes.route('/requestpasswordreset', {
+//     name: 'requestpasswordreset',
+//     action() {
+//         mount(App, {yield: <RequestPasswordReset />});
+//     }
+// });
+
+// publicRoutes.route('/passwordreset/:token', {
+//     name: 'passwordreset',
+//     action(params, queryParams) {
+//         mount(App, {yield: <PasswordReset token={params.token}/>});
+//     }
+// });

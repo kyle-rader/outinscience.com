@@ -7,12 +7,13 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 AuthedComponentContainer = createContainer(({ params }) => {
-  const { accessLevel } = params;
   const user = Meteor.user();
   return {
     user,
     canView() {
-      return user ? user.hasRole(accessLevel) : false;
+      return Boolean(user);
     }
   };
 }, AuthedComponent);
+
+export default AuthedComponentContainer;

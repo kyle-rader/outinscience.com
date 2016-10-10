@@ -9,6 +9,6 @@ const authedRoutes = FlowRouter.group({
 authedRoutes.route('/profile', {
     name: 'profile',
     action() {
-        mount(App, {yield: <Login />});
+        mount(App, {yield: <Profile />});
     }
 });

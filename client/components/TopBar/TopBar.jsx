@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Dropdown } from 'semantic-ui-react';
 
 TopBar = class TopBar extends React.Component {
 
@@ -39,22 +39,35 @@ TopBar = class TopBar extends React.Component {
     }
   }
 
+  _login(event) {
+    event.preventDefault();
+    Meteor.loginWithFacebook({ requestPermissions: ['email', 'public_profile'] }, (err) => {
+      if(err) {
+        throw err;
+      }
+    });
+  }
+
   _logout(event) {
     event.preventDefault();
     return Meteor.logout(() => FlowRouter.go('/'));
   }
 
-  _logInLogOutBtn() {
+  _rightMenu() {
     if (this.props.user) {
       return (
-        <a className="item" onClick={(e) => this._logout(e)}>
-          <Icon name="large green power"/>
-        </a>
+        <Dropdown simple className="item" icon="large blue user" text={`${this.props.user.name} `}>
+          <Dropdown.Menu>
+            <Dropdown.Item as="a" icon="settings" text="Profile" href="/profile" />
+            <Dropdown.Divider/>
+            <Dropdown.Item icon="power" text="Logout" onClick={(e) => this._logout(e)}/>
+          </Dropdown.Menu>
+        </Dropdown>
       );
     } else {
       return (
-        <a className="item" href="/login">
-          <Icon name="large gray power"/>
+        <a className="item" onClick={(e) => this._login(e)}>
+          Login&nbsp;<Icon name="sign in"/>
         </a>
       );
     }
@@ -119,7 +132,7 @@ TopBar = class TopBar extends React.Component {
         { this._renderSocialButtons() }
 
         <div className="right menu">
-          {this._logInLogOutBtn()}
+          {this._rightMenu()}
         </div>
       </div>
     );
