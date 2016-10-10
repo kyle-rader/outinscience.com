@@ -1,4 +1,6 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import { Icon } from 'semantic-ui-react';
 
 TopBar = class TopBar extends React.Component {
 
@@ -14,7 +16,7 @@ TopBar = class TopBar extends React.Component {
   _socialButton(link, socialApp, labeled = false) {
     return (
       <a className="item" href={link} target="_blank" key={`${socialApp}-btn`}>
-        <i className={`large ${socialApp} ${socialApp}-color icon`}></i>
+        <Icon name={`large ${socialApp} ${socialApp}-color`}/>
         { labeled ? `${socialApp.slice(0,1).toUpperCase()}${socialApp.slice(1)}` : '' }
       </a>
     );
@@ -26,7 +28,7 @@ TopBar = class TopBar extends React.Component {
     if (this.state.isMobile) {
       return (
       <div className="ui dropdown item">
-        <i className="large dark-blue pointing down icon"></i>
+        <Icon name="large dark-blue pointing down"/>
         <div className="menu topbar-dropdown-menu">
           { appButtons.map((link, app) => this._socialButton(link, app, true)) }
         </div>
@@ -46,13 +48,13 @@ TopBar = class TopBar extends React.Component {
     if (this.props.user) {
       return (
         <a className="item" onClick={(e) => this._logout(e)}>
-          <i className="large green power icon"></i>
+          <Icon name="large green power"/>
         </a>
       );
     } else {
       return (
         <a className="item" href="/login">
-          <i className="large gray power icon"></i>
+          <Icon name="large gray power"/>
         </a>
       );
     }
@@ -80,28 +82,36 @@ TopBar = class TopBar extends React.Component {
       <div className="ui fixed icon menu top-bar" ref="topbar">
 
         <div className="ui dropdown item" ref="menuDropdown">
-          <i className="large green content icon"></i>
+          <Icon name="large green content"/>
 
           <div className="menu topbar-dropdown-menu">
             <a className="item" href="/">
-              <img className="ui iamage" src="/img/logo-512.png"/>
+              <img className="ui iamage" src="/img/brand/logo.jpg"/>
               Home
             </a>
             <a className="item" href="/archive">
-              <i className="blue archive icon"></i>
-              Archive
+              <Icon name="red list"/>
+              Out List
             </a>
             <a className="item" href="/contact">
-              <i className="red tag icon"></i>
-              Tags
+              <Icon name="orange book"/>
+              Glossary
             </a>
             <a className="item" href="/resume">
-              <i className="orange book icon"></i>
-              CV
+              <Icon name="yellow life ring"/>
+              Resources
             </a>
             <a className="item" href="/info">
-              <i className="violet cubes icon"></i>
-              Cool Stuff
+              <Icon name="green comments outline icon"/>
+              Forum
+            </a>
+            <a className="item" href="/info">
+              <Icon name="blue lab icon"/>
+              Science
+            </a>
+            <a className="item" href="/info">
+              <Icon name="purple users"/>
+              The Team
             </a>
           </div>
         </div>
