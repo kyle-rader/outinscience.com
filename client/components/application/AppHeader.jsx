@@ -7,8 +7,6 @@ AppHeader = React.createClass({
     getMeteorData() {
         return {
             user: Meteor.user(),
-            isAdmin: Meteor.user() && Meteor.user().roles && (Meteor.user().roles.indexOf('admin') > -1),
-            isVolunteer: Meteor.user() && Meteor.user().roles && (Meteor.user().roles.indexOf('volunteer') > -1)
         };
     },
 
@@ -31,16 +29,9 @@ AppHeader = React.createClass({
 
     getRightMenu() {
         // User is logged in
-
-        // NOTE:
-        // Below There is an example of another top header button which currently goes to Google.com
-
         if (this.data.user) {
-
             return (
             <div className="right menu">
-
-
                 <a className="ui icon item" href="https://google.com" target="_blank">
                     <i className="large red fitted google icon"></i>
                 </a>

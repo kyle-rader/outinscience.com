@@ -1,12 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
+console.log(`Setting Facebook service App_ID:${Meteor.settings.facebook.app_id} Secret:${Meteor.settings.facebook.app_secret}`);
 ServiceConfiguration.configurations.upsert(
   { service: "facebook" },
   {
     $set: {
-      clientId: Meteor.settings.facebook.app_id,
-      loginStyle: "popup",
+      appId: Meteor.settings.facebook.app_id,
+      loginStyle: "redirect",
       secret: Meteor.settings.facebook.app_secret
     }
   }

@@ -58,19 +58,6 @@ TopBar = class TopBar extends React.Component {
     }
   }
 
-  _renderAdminMenu() {
-    if (this.props.isAdmin()) {
-      return [
-        (<div className="divider" key="admin-div"></div>),
-        (<div className="header" key="admin-header">Admin</div>),
-        (<a className="item" href="/editor" key="admin-editor"><i className="large green edit icon"></i> Editor</a>),
-        (<a className="item" href="/settings" key="admin-settings"><i className="large dark-red settings icon"></i> Settings</a>),
-      ];
-    } else {
-      return null;
-    }
-  }
-
   _initDropDownMenus() {
     $(this.refs.topbar).find('.ui.dropdown').dropdown();
   }
@@ -116,7 +103,6 @@ TopBar = class TopBar extends React.Component {
               <i className="violet cubes icon"></i>
               Cool Stuff
             </a>
-            { this._renderAdminMenu() }
           </div>
         </div>
 

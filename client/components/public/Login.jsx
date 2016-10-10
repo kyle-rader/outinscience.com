@@ -17,13 +17,17 @@ Login = class Login extends React.Component {
   login(event) {
     event.preventDefault();
 
-    let email = $(this.refs.email).val();
-    let password = $(this.refs.password).val();
+    // let email = $(this.refs.email).val();
+    // let password = $(this.refs.password).val();
 
-    Meteor.loginWithPassword(email, password, (err) => {
-      if (err) {
-        this.setState({err: err});
-      }
+    // Meteor.loginWithPassword(email, password, (err) => {
+    //   if (err) {
+    //     this.setState({err: err});
+    //   }
+    // });
+
+    Meteor.loginWithFacebook({ requestPermissions: ['email', 'public_profile'] }, (err) => {
+      throw new Error('Facebook login faied');
     });
   }
 
@@ -47,19 +51,7 @@ Login = class Login extends React.Component {
                 Log In
               </div>
             </h2>
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="user icon"></i>
-                <input type="text" ref="email" placeholder="Username or Email" autoComplete="off" defaultValue={this.state.email}/>
-              </div>
-            </div>
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="lock icon"></i>
-                <input type="password" ref="password" placeholder="Password" autoComplete="off" defaultValue={this.state.password}/>
-              </div>
-            </div>
-            <input className="ui fluid large green submit button" type="submit" value="Login" />
+            <input className="ui fluid large blue facebook submit button" type="submit" value="Login" />
           </div>
         </form>
         {() => this.getErrorMessage()}
